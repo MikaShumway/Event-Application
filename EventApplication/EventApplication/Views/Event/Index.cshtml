@@ -1,0 +1,26 @@
+﻿@model IEnumerable<EventApplication.Models.Event>
+
+@{
+    ViewBag.Title = "Find an Event";
+    var errorMessage = TempData["errorMessage"];
+}
+
+<h2>Index</h2>
+
+@Html.Partial("_Search")
+
+@if (Model != null) {
+    <ul>
+        @foreach (var item in Model)
+        {
+            <li>
+                @Html.ActionLink(@item.Title, "Details", new { id = item.Id }) | @Html.DisplayFor(@event => item.StartDate) | @item.Location
+            </li>
+        }
+    </ul>
+}
+else {
+    <div id="error">
+        @errorMessage
+    </div>
+}

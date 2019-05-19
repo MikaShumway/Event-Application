@@ -1,0 +1,36 @@
+﻿@model IEnumerable<EventApplication.Models.Order>
+
+<h2>Order Summary</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            Order Number
+        </th>
+        <th>
+            Event Title
+        </th>
+        <th>
+            Tickets Ordered
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @item.Number
+            </td>
+            <td>
+                @Html.ActionLink(@item.EventSelected.Title, "Details", new { id = item.Id })
+            </td>
+            <td>
+                @item.Tickets
+            </td>
+            <td>
+                <button>@Html.ActionLink("Remove", "CancelOrder", "OrderSummary", new { id = item.Id }, null)</button>
+            </td>
+        </tr>
+    }
+
+</table>

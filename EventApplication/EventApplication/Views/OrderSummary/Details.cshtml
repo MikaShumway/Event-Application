@@ -1,0 +1,87 @@
+﻿@model EventApplication.Models.Order
+
+@{
+    ViewBag.Title = "Order Details";
+
+    var message = ViewBag.Message;
+
+    string status = "?";
+    if (Model.Status == 1)
+    {
+        status = "Complete";
+    }
+    else if (Model.Status == 0)
+    {
+        status = "Canceled";
+    }
+}
+
+<h2>Details</h2>
+
+<div id="error">@message</div>
+
+<div>
+    <h4>Order</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Order Number
+        </dt>
+
+        <dd>
+            @Model.Number
+        </dd>
+
+        <dt>
+            Order Status
+        </dt>
+
+        <dd>
+            @status
+        </dd>
+
+        <dt>
+            Date Ordered
+        </dt>
+
+        <dd>
+            @Model.OrderDate
+        </dd>
+
+        <dt>
+            Event Title
+        </dt>
+
+        <dd>
+            @Model.EventSelected.Title
+        </dd>
+
+        <dt>
+            Event Description
+        </dt>
+
+        <dd>
+            @Model.EventSelected.Description
+        </dd>
+
+        <dt>
+            Event Starting Date
+        </dt>
+
+        <dd>
+            @Model.EventSelected.StartDate
+        </dd>
+
+        <dt>
+            Event Ending Date
+        </dt>
+
+        <dd>
+            @Model.EventSelected.EndDate
+        </dd>
+    </dl>
+</div>
+
+<p>
+    @Html.ActionLink("Back to Order", "Index")
+</p>

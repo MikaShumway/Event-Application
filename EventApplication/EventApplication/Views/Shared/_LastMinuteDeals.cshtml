@@ -1,0 +1,26 @@
+﻿@model IEnumerable<EventApplication.Models.Event>
+
+
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <h3 class="panel-title">Last Minute Deals</h3>
+    </div>
+
+    <div class="panel-body">
+        @if (Model != null)
+        {
+            <ul id="deals">
+                @foreach (var item in Model)
+                {
+                    <li>
+                        @Html.ActionLink(@item.Title, "Details", "Event", new { id = item.Id }, null) | @item.StartDate | @item.Location
+                    </li>
+                }
+            </ul>
+        }
+        else
+        {
+            <p>There are no Last Minute Deals as of right now.</p>
+        }
+    </div>
+</div>

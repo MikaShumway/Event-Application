@@ -1,0 +1,18 @@
+﻿@{
+    /**/
+
+    ViewBag.Title = "Home";
+}
+
+<div class="jumbotron">
+    <h1>Event Application</h1>
+    <p class="lead">Organize, Find, and Register for events.</p>
+</div>
+
+<div class="col-lg-4 col-lg-offset-12 last-min-deals">
+    @Html.Partial("_LastMinuteDeals")
+</div>
+
+<div class="row">
+    @Html.Partial("_Search")
+</div>
