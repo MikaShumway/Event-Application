@@ -1,1 +1,1 @@
-# Event App MVC
+# School Project for Tri-C
